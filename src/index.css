@@ -98,7 +98,7 @@ b{
   cursor:pointer;
 }
 
-.NavbarLinks{
+.NavbarLinks {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,14 +107,14 @@ b{
   font-size: 22px;
 }
 
-.NavbarLinks li{
+.NavbarLinks li {
   padding: 2px 20px;
   list-style-type: none;
 }
 
-.NavbarLinks a{
+.NavbarLinks a {
   color: #c2c1c2;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -122,25 +122,43 @@ b{
   padding: 2px 7px;
   letter-spacing: 0.5px;
   text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.NavbarLinks a:hover{
+/* Hover text color and slide effect */
+.NavbarLinks a:hover {
   color: #ffffff;
+  transform: translateX(5px);
 }
-.NavbarLinks a::after{
-  background-color: #ffffff;
+
+/* Fancy underline effect */
+.NavbarLinks a::before {
   content: "";
   position: absolute;
+  width: 0;
   height: 3px;
-  left: 5px;
-  bottom: 0;
-  width: 0px;
-  border-radius: 2px;
-  transition: 0.3s;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #ffffff, #ffd700);
+  border-radius: 3px;
+  transition: width 0.4s ease-in-out;
 }
-.NavbarLinks a:hover:after{
-  width: 95%;
+
+.NavbarLinks a:hover::before {
+  width: 100%;
 }
+
+/* Mobile responsive styling */
+@media screen and (max-width: 800px) {
+  .NavbarLinks.showNavbar li a {
+    color: #031926;
+  }
+
+  .NavbarLinks.showNavbar a::before {
+    background: #031926;
+  }
+}
+
 .Hamburger{
   display: none;
 }
